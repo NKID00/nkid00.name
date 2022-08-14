@@ -16,8 +16,8 @@ body {
     font-weight: 400;
     max-width: 80vmin;
     margin: auto;
-    padding-top: 3vmin;
-    padding-bottom: 2vmin;
+    padding-top: 5vmin;
+    padding-bottom: 3vmin;
 }
 
 #fake-counter {
@@ -96,7 +96,17 @@ a:hover {
 #counter {
     display: flex;
     justify-content: center;
-    margin: 7vmin auto 3vmin auto;
+    width: 100%;
+    margin: 7vmin auto 1vmin auto;
+}
+
+#counter>* {
+    width: 60%;
+}
+
+#counter>*>img {
+    width: 100%;
+    margin: 0 auto 1vmin auto;
 }
 
 .error {
