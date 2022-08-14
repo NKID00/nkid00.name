@@ -99,3 +99,13 @@ a:hover {
     justify-content: center;
     margin: 3em auto 0 auto;
 }
+
+.error {
+    color: #f09199;
+    font-size: 2em;
+    text-align: center;
+}
+
+.back {
+    text-align: center;
+}
