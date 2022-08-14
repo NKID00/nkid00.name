@@ -1,30 +1,29 @@
 html {
     font-family: 'Fantasque Sans Mono';
     background-color: #fdfdfd;
-    padding-top: 2em;
-    padding-bottom: 2em;
+    padding-top: 3vmin;
+    padding-bottom: 5vmin;
 }
 
 body {
-    max-width: 40em;
+    max-width: 90vmin;
     margin: auto;
-    border-radius: 0.5em;
-    box-shadow: 0 0 0.5em #555555;
+    border-radius: 1vmin;
+    box-shadow: 0 0 1.5vmin #555555;
 }
 
 .main {
     font-weight: 400;
-    max-width: 35em;
+    max-width: 80vmin;
     margin: auto;
-    padding-top: 1.5em;
-    padding-bottom: 2em;
+    padding-top: 3vmin;
+    padding-bottom: 2vmin;
 }
 
 #fake-counter {
     font-family: sans-serif;
-    font-size: 0.8em;
     text-align: center;
-    margin-bottom: 3em;
+    margin-bottom: 6vmin;
 }
 
 #fake-counter>*>#number {
@@ -35,18 +34,18 @@ body {
 
 .small {
     font-family: 'Fantasque Sans Mono';
-    font-size: 1em;
+    font-size: 2vmin;
 }
 
 .title {
     color: #f09199;
     display: flex;
     flex-direction: row;
-    margin: 0 0 3em 0;
+    margin: 0 0 6vmin 0;
 }
 
 .title>#greetings {
-    font-size: 2em;
+    font-size: 4.5vmin;
     text-align: left;
     margin-top: auto;
     margin-bottom: auto;
@@ -56,7 +55,7 @@ body {
 
 .title>#name {
     font-weight: 700;
-    font-size: 4em;
+    font-size: 10vmin;
     text-align: right;
     margin-top: auto;
     margin-bottom: auto;
@@ -66,14 +65,14 @@ body {
 h2 {
     color: #f09199;
     font-weight: 700;
-    font-size: 1.5em;
-    margin: 0.7em 0 0 0;
+    font-size: 3.3vmin;
+    margin: 0.5em 0 0.5em 0;
 }
 
 p {
     color: #555555;
-    font-size: 1.25em;
-    margin: 0.6em 1em 0.6em 1em;
+    font-size: 2.8vmin;
+    margin: 0em 1em 0.7em 1em;
 }
 
 a {
@@ -83,7 +82,7 @@ a {
     background-size: 0% 2px, 100% 2px;
     background-position: 0 100%, 0 100%;
     background-repeat: no-repeat;
-    transition: all 0.15s;
+    transition: background-size 0.15s;
 }
 
 a:hover {
@@ -97,12 +96,12 @@ a:hover {
 #counter {
     display: flex;
     justify-content: center;
-    margin: 3em auto 0 auto;
+    margin: 7vmin auto 3vmin auto;
 }
 
 .error {
     color: #f09199;
-    font-size: 2em;
+    font-size: 4.5vmin;
     text-align: center;
 }
 
