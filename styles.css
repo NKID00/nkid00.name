@@ -107,6 +107,7 @@ a:hover {
 #counter>*>img {
     width: 100%;
     margin: 0 auto 1vmin auto;
+    image-rendering: pixelated;
 }
 
 .error {
