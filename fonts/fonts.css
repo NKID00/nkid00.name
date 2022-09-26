@@ -1,13 +1,13 @@
 @font-face {
-  font-family: 'Fantasque Sans Mono';
-  src: url('FantasqueSansMono-Regular.woff2') format('woff2');
-  font-weight: 400;
+  font-family: 'Inconsolata';
+  src: url('Inconsolata-Regular.woff2') format('woff2');
+  font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Fantasque Sans Mono';
-  src: url('FantasqueSansMono-Bold.woff2') format('woff2');
-  font-weight: 700;
+  font-family: 'Inconsolata';
+  src: url('Inconsolata-Bold.woff2') format('woff2');
+  font-weight: bold;
   font-style: normal;
 }
