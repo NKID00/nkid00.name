@@ -33,12 +33,12 @@ body {
 }
 
 .small {
-    font-family: 'Inconsolata', system-ui, -apple-system, sans-serif;;
+    font-family: 'Inconsolata', system-ui, -apple-system, sans-serif;
     font-size: 16px;
 }
 
 h1 {
-    font-family: 'Inconsolata', system-ui, -apple-system, sans-serif;;
+    font-family: 'Inconsolata', system-ui, -apple-system, sans-serif;
     font-weight: bold;
     color: #f09199;
     font-size: 35px;
@@ -47,7 +47,7 @@ h1 {
 }
 
 h2 {
-    font-family: 'Inconsolata', system-ui, -apple-system, sans-serif;;
+    font-family: 'Inconsolata', system-ui, -apple-system, sans-serif;
     font-weight: bold;
     color: #f09199;
     font-size: 25px;
@@ -76,7 +76,7 @@ a:hover {
 }
 
 .no-default-underline {
-    background-size: 0% 2px, 0% 2px;
+    background-size: 0% 10%, 0% 10%;
 }
 
 #counter {
