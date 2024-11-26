@@ -1,4 +1,4 @@
-name: build
+name: deploy
 
 on:
   push:
@@ -13,3 +13,6 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           path: public/
+  deploy:
+    uses: NKID00/nkid00.name-priv/.github/workflows/deploy.yml@workflow
+    secrets: inherit
