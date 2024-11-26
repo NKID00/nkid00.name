@@ -35,5 +35,5 @@ jobs:
       - name: Commit and push branch dist
         run: |
           git add .
-          git commit -m "${{ env.TIME }}"
+          git commit -q -m "${{ env.TIME }}"
           git push --force origin dist:dist
