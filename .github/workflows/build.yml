@@ -15,5 +15,6 @@ jobs:
         with:
           path: public/
   deploy:
+    needs: build
     uses: NKID00/nkid00.name/.github/workflows/deploy.yml@master
     secrets: inherit
