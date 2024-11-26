@@ -1,19 +1,40 @@
 name: deploy
 
 on:
-  workflow_dispatch:
-  push:
-    branches:
-      - master
+  workflow_call:
 
 jobs:
-  build:
+  deploy:
+    needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/upload-artifact@v4
+      - name: Retrieve current time
+        run: |
+          echo "TIME=$(date --iso-8601=seconds --utc)" >> ${GITHUB_ENV}
+      - name: Configure git user
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+      - name: Checkout repository
+        uses: actions/checkout@v4
         with:
-          path: public/
-  deploy:
-    uses: NKID00/nkid00.name-priv/.github/workflows/deploy.yml@workflow
-    secrets: inherit
+          repository: NKID00/nkid00.name-priv
+          ref: master
+          token: ${{ secrets.GH_PAT }}
+          path: .
+      - name: Create branch dist
+        run: |
+          git checkout --orphan dist
+      - name: Download artifact from NKID00/nkid00.name
+        uses: dawidd6/action-download-artifact@v6
+        with:
+          github_token: ${{ secrets.GH_PAT }}
+          workflow: build.yml
+          branch: master
+          path: home/
+          repo: NKID00/nkid00.name
+      - name: Commit and push branch dist
+        run: |
+          git add .
+          git commit -m "${{ env.TIME }}"
+          git push --force origin dist:dist
