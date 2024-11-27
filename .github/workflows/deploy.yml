@@ -34,6 +34,16 @@ jobs:
           name: artifact
           path: home/
           repo: NKID00/nkid00.name
+      - name: Download artifact from NKID00/journal
+        uses: dawidd6/action-download-artifact@v6
+        with:
+          github_token: ${{ secrets.GH_PAT }}
+          workflow: build.yml
+          workflow_conclusion: ""
+          branch: master
+          name: artifact
+          path: journal/
+          repo: NKID00/journal
       - name: Download artifact from NKID00/dazhuan-assignments
         uses: dawidd6/action-download-artifact@v6
         with:
