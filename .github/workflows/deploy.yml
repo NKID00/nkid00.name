@@ -42,6 +42,15 @@ jobs:
           name: artifact
           path: assignments/
           repo: NKID00/dazhuan-assignments
+      - name: Download artifact from NKID00/tic-tac-toe
+        uses: dawidd6/action-download-artifact@v6
+        with:
+          github_token: ${{ secrets.GH_PAT }}
+          workflow: build.yml
+          branch: master
+          name: artifact
+          path: tic-tac-toe/
+          repo: NKID00/tic-tac-toe
       - name: Commit and push branch dist
         run: |
           git add .
