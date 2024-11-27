@@ -29,6 +29,7 @@ jobs:
         with:
           github_token: ${{ secrets.GH_PAT }}
           workflow: build.yml
+          workflow_conclusion: ""
           branch: master
           name: artifact
           path: home/
@@ -38,6 +39,7 @@ jobs:
         with:
           github_token: ${{ secrets.GH_PAT }}
           workflow: build.yml
+          workflow_conclusion: ""
           branch: master
           name: artifact
           path: assignments/
@@ -47,6 +49,7 @@ jobs:
         with:
           github_token: ${{ secrets.GH_PAT }}
           workflow: build.yml
+          workflow_conclusion: ""
           branch: master
           name: artifact
           path: tic-tac-toe/
