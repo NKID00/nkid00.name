@@ -10,23 +10,24 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - name: Remove release
+      - name: Retrieve current time
+        run: |
+          echo "TIME=$(date --iso-8601=seconds --utc)" >> ${GITHUB_ENV}
+      - name: Configure git user
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          gh release delete release --cleanup-tag -y || true
-          git tag -d release || true
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/checkout@v4
       - name: Create release
         run: |
+          gh release delete release --cleanup-tag -y || true
+          git tag -d release || true
           git tag release
           git push origin --tags
           pushd public
-          zip -r ../dist.zip *
+          zip -qr ../dist.zip *
           popd
-          gh release create release --latest dist.zip
+          gh release create release --latest -n "${{ env.TIME }}" dist.zip
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   deploy:

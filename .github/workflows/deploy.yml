@@ -35,7 +35,7 @@ jobs:
       - name: Extract artifacts
         run: |
           for f in artifact/*.zip
-          do unzip "$f" -d `basename "$f" .zip`
+          do unzip -q "$f" -d `basename "$f" .zip`
           done
           rm -r artifact
       - name: Commit and push branch dist
