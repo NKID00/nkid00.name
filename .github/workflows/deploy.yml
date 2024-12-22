@@ -26,10 +26,10 @@ jobs:
           git checkout --orphan dist
       - name: Download artifacts
         run: |
-          gh release download -R NKID00/nkid00.name -p dist.zip -o artifact/home.zip
-          gh release download -R NKID00/journal -p dist.zip -o artifact/journal.zip
-          gh release download -R NKID00/dazhuan-assignments -p dist.zip -o artifact/assignments.zip
-          gh release download -R NKID00/tic-tac-toe -p dist.zip -o artifact/tic-tac-toe.zip
+          gh release download -R NKID00/nkid00.name -p dist.zip -O artifact/home.zip
+          gh release download -R NKID00/journal -p dist.zip -O artifact/journal.zip
+          gh release download -R NKID00/dazhuan-assignments -p dist.zip -O artifact/assignments.zip
+          gh release download -R NKID00/tic-tac-toe -p dist.zip -O artifact/tic-tac-toe.zip
         env:
           GH_TOKEN: ${{ secrets.GH_PAT }}
       - name: Extract artifacts

@@ -21,7 +21,6 @@ jobs:
       - name: Create release
         run: |
           gh release delete release --cleanup-tag -y || true
-          git tag -d release || true
           git tag release
           git push origin --tags
           pushd public
