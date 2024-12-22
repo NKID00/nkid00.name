@@ -15,8 +15,8 @@ jobs:
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          gh release delete release --cleanup-tag -y
-          git tag -d release
+          gh release delete release --cleanup-tag -y || true
+          git tag -d release || true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Create release
