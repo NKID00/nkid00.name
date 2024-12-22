@@ -24,46 +24,20 @@ jobs:
       - name: Create branch dist
         run: |
           git checkout --orphan dist
-      - name: Download artifact from NKID00/nkid00.name
-        uses: dawidd6/action-download-artifact@v6
-        with:
-          github_token: ${{ secrets.GH_PAT }}
-          workflow: build.yml
-          workflow_conclusion: ""
-          branch: master
-          name: artifact
-          path: home/
-          repo: NKID00/nkid00.name
-      - name: Download artifact from NKID00/journal
-        uses: dawidd6/action-download-artifact@v6
-        with:
-          github_token: ${{ secrets.GH_PAT }}
-          workflow: build.yml
-          workflow_conclusion: ""
-          branch: master
-          name: artifact
-          path: journal/
-          repo: NKID00/journal
-      - name: Download artifact from NKID00/dazhuan-assignments
-        uses: dawidd6/action-download-artifact@v6
-        with:
-          github_token: ${{ secrets.GH_PAT }}
-          workflow: build.yml
-          workflow_conclusion: ""
-          branch: master
-          name: artifact
-          path: assignments/
-          repo: NKID00/dazhuan-assignments
-      - name: Download artifact from NKID00/tic-tac-toe
-        uses: dawidd6/action-download-artifact@v6
-        with:
-          github_token: ${{ secrets.GH_PAT }}
-          workflow: build.yml
-          workflow_conclusion: ""
-          branch: master
-          name: artifact
-          path: tic-tac-toe/
-          repo: NKID00/tic-tac-toe
+      - name: Download artifacts
+        run: |
+          gh release download -R NKID00/nkid00.name -p dist.zip -o artifact/home.zip
+          gh release download -R NKID00/journal -p dist.zip -o artifact/journal.zip
+          gh release download -R NKID00/dazhuan-assignments -p dist.zip -o artifact/assignments.zip
+          gh release download -R NKID00/tic-tac-toe -p dist.zip -o artifact/tic-tac-toe.zip
+        env:
+          GH_TOKEN: ${{ secrets.GH_PAT }}
+      - name: Extract artifacts
+        run: |
+          for f in artifact/*.zip
+          do unzip "$f" -d `basename "$f" .zip`
+          done
+          rm -r artifact
       - name: Commit and push branch dist
         run: |
           git add .
