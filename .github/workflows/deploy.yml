@@ -37,6 +37,7 @@ jobs:
           do unzip -q "$f" -d `basename "$f" .zip`
           done
           rm -r artifact
+          mv journal/* .
       - name: Commit and push branch dist
         run: |
           git add .
