@@ -34,7 +34,8 @@ jobs:
           GH_TOKEN: ${{ secrets.GH_PAT }}
       - name: Extract artifacts
         run: |
-          unzip -q journal.zip -d journal
+          unzip -q artifact/journal.zip -d journal
+          rm artifact/journal.zip
           mkdir g
           for f in artifact/*.zip ; do unzip -q "$f" -d "g/$(basename $f .zip)" ; done
           rm -r artifact
