@@ -34,9 +34,9 @@ jobs:
           GH_TOKEN: ${{ secrets.GH_PAT }}
       - name: Extract artifacts
         run: |
-          for f in artifact/*.zip
-          do unzip -q "$f" -d `basename "$f" .zip`
-          done
+          unzip -q journal.zip -d journal
+          mkdir g
+          for f in artifact/*.zip ; do unzip -q "$f" -d "g/$(basename $f .zip)" ; done
           rm -r artifact
           mv journal/* .
       - name: Commit and push branch dist
